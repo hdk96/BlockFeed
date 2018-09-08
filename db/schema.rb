@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2018_09_08_172201) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "link"
-    t.text "images"
+    t.text "image"
   end
 
 end

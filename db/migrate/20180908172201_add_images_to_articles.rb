@@ -1,5 +1,5 @@
 class AddImagesToArticles < ActiveRecord::Migration[5.2]
   def change
-    add_column :articles, :images, :text
+    add_column :articles, :image, :text
   end
 end
