@@ -1,0 +1,24 @@
+#article-primary{
+	margin-top: 3em;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+
+	height: 40em;
+}
+.img-primary-article{
+	width: 75em;
+	height: 40em;
+}
+
+#primary-title-content{
+	width: 60em;
+	height: 20em;
+
+	background-color: #f8f2f4;
+}
+
+#all-articles{
+	margin-top: 10em;
+}

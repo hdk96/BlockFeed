@@ -1,16 +1,29 @@
+<div class="article-container">
+	<div id="article-primary">
+		<% first_article = @articles.first %>
+		
+		<%= link_to(image_tag(first_article.image, :class => "img-primary-article"), first_article.link) %>
+			<div id="primary-title-content">
+				<h2> <%= link_to first_article.title, first_article.link %> </h2>
+				<h3> <%= first_article.description %> </h3>
+			</div>
+    </div>
+	
+	<div id="all-articles">
+		<% @articles.each do |article| %>
+		<hr>
+			<h2> 
+				<%= link_to article.title, article.link %>  
+			</h2>
+			<img src= <% article.image %> > 
+			<%= link_to(image_tag(article.image), article.link) %>
+			<p> <%= article.description %> </p>
+			<p> <%= article.created_at %> </p>
 
-<h1>Binvenue </h1>
-<% @articles.each do |article| %>
+		</a>
 
-		<h2> 
-			<%= link_to article.title, article.link %>  
-		</h2>
-		<img src= <% article.image %> > 
-		<p> <%= article.description %> </p>
-		<p> <%= article.created_at %> </p>
-
-	</a>
-
-<% end %>
+		<% end %>
+	</div>
+</div>
 
 <%= link_to "logout", destroy_user_session_path, method: :delete %>s
