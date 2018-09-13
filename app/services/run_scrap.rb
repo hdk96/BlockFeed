@@ -9,18 +9,21 @@ require 'uri'
 class RunScrap
 
 	def initialize
-		@doc = Nokogiri::HTML(open('https://www.crypto-france.com/bitcoin'))
+		@doc = Nokogiri::HTML(open('https://www.crypto-france.com'))
 	end
-
 
 #-----------------------------------------------------------------------------------
 	def get_articles_title(page)
 		@articles_title = []
 		idx = 0
-		page.xpath('//h2[@class="entry-title h3"]').each do |title|
+		page.xpath('//div[@class="herald-main-content col-lg-9 col-md-9 col-mod-main"]//h2').each do |title|
 			@articles_title[idx] = title.content
 			idx += 1
 		end 
+
+		t = @articles_title.length
+		@articles_title = @articles_title[1..t]
+
 		return @articles_title
 	end 
 #-----------------------------------------------------------------------------------
@@ -37,7 +40,7 @@ class RunScrap
 	def get_articles_img(page)
 		@articles_img = []
 		idx = 0
-		page.xpath('//img[@class="attachment-herald-lay-b1 size-herald-lay-b1 wp-post-image"]').each do |img_link|
+		page.xpath('//img[@class="attachment-herald-lay-b size-herald-lay-b wp-post-image"]').each do |img_link|
 			@articles_img[idx] = img_link["src"] 
 			idx += 1
 		end 
