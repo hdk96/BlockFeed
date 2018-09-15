@@ -1,4 +1,4 @@
-<div class="article-container">
+<div class="article-container container">
 	<div id="article-primary">
 		<% first_article = @articles.first %>
 		
@@ -8,27 +8,28 @@
 				<h3> <%= first_article.description %> </h3>
 			</div>
     </div>
-	
-	<div class="container" id="all-articles">
-	<hr>
+</div>
+
+<div class="container" id="all-articles">
 	<% @articles.each do |article| %>
+
 		<div class="row">
-			<div class="col-md-4 col-lg-4">
-				<h2> 
+			<div class="body-article-container col-lg-6 ml-lg-auto">
+				<h2 class="card-title">
 					<%= link_to article.title, article.link %>  
 				</h2>
-			
-				<%= link_to(image_tag(article.image), article.link) %>
-				<p> <%= article.description %> </p>
+
+				<h3 class="card-text"><%= article.description %> </h3>
 				<p> <%= article.created_at %> </p>
 			</div>
 
-			<div class="col_md-3 col-lg-3">
-				<img src= <% article.image %> >
+			<div class="article-images col-lg-6 mb-lg-auto">
+				<%= link_to(image_tag(article.image), article.link) %>
 			</div>
 		</div>
+	<hr>
 	<% end %>
-	</div>
 </div>
 
 <%= link_to "logout", destroy_user_session_path, method: :delete %>s
+

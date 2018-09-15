@@ -15,7 +15,7 @@ gem 'rails', '~> 5.2.1'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
-gem 'devise-bootstrap-views'
+gem 'bootstrap', '~> 4.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
