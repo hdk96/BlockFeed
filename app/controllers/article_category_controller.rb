@@ -5,8 +5,8 @@ class ArticleCategoryController < ApplicationController
 
 	def create
 		ArticleCategory.create
-		@article = ArticleCategory.new(ac_params)
-		@article.save
+		@articlecategory = ArticleCategory.new(ac_params)
+		@articlecategory.save
 	end
 
 	private

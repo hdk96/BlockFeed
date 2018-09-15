@@ -69,7 +69,7 @@ class RunScrap
 #-----------------------------------------------------------------------------------
 def get_articles_category(page)
 	@articles_categories = []
-	@db_title = get_articles_title(@doc)
+	@db_title = get_articles_title(page)
 	idx = 0
 
 	page.xpath('//div[@class="entry-header"]//span[@class="meta-category"]//a').each do |category|
@@ -112,7 +112,7 @@ end
 		all_images   	= get_articles_img(@doc)
 		all_content  	= get_articles_content(@doc)
 		all_create_time = get_creat_time(@doc)
-		all_category 	= get_articles_category(@doc)
+		all_categories 	= get_articles_category(@doc)
 
 		@articles_length = all_titles.length
 
@@ -120,22 +120,22 @@ end
 
 			if (all_titles[i] =~ /[a-zA-Z]/  and all_content[i] =~ /[a-zA-Z]/ ) 
 				Article.create(title: all_titles[i], description: all_content[i], link: all_link[i], image: all_images[i], created_at: all_create_time[i])
-				article = Article.last
+				@article = Article.last
 
+				Category.create(name: "Etherum")
 				Category.create(name: all_categories[i])
-				category = Category.last
+				@category = Category.last
 
-				ArticleCategory.create(article_id: article.id, category_id:category.id)
+				ArticleCategory.create(article_id: @article.id, category_id: @category.id)
 			end
 		end 
 	end
 
 	def perform
-		Category.create(name: "fooooobaaaar")
+		Category.create(name: "Etherum")
 		ArticleCategory.create(article_id: 1, category_id: 2)
 		
 		Article.all.destroy_all
-		Category.all.destroy_all
 		ArticleCategory.all.destroy_all
 		save
 	end 

@@ -6,14 +6,14 @@ class CategoriesController < ApplicationController
     
     def new
     	Categoty.create
-  		@Categoty = Categoty.new(category_params)
-  		@Categoty.save
+  		@Category = Categoty.new(category_params)
+  		@Category.save
     end
     
   	private
 
-  	def Categoty_params
-  		params.require(:Categoty).permit(:name)
+  	def Category_params
+  		params.require(:Category).permit(:name)
  	
   	end
 
