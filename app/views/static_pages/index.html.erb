@@ -9,20 +9,25 @@
 			</div>
     </div>
 	
-	<div id="all-articles">
-		<% @articles.each do |article| %>
-		<hr>
-			<h2> 
-				<%= link_to article.title, article.link %>  
-			</h2>
-			<img src= <% article.image %> > 
-			<%= link_to(image_tag(article.image), article.link) %>
-			<p> <%= article.description %> </p>
-			<p> <%= article.created_at %> </p>
+	<div class="container" id="all-articles">
+	<hr>
+	<% @articles.each do |article| %>
+		<div class="row">
+			<div class="col-md-4 col-lg-4">
+				<h2> 
+					<%= link_to article.title, article.link %>  
+				</h2>
+			
+				<%= link_to(image_tag(article.image), article.link) %>
+				<p> <%= article.description %> </p>
+				<p> <%= article.created_at %> </p>
+			</div>
 
-		</a>
-
-		<% end %>
+			<div class="col_md-3 col-lg-3">
+				<img src= <% article.image %> >
+			</div>
+		</div>
+	<% end %>
 	</div>
 </div>
 

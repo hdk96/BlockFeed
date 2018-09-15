@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'article_category/new'
+  get 'article_category/create'
   devise_for :users
   root 'static_pages#index'
   get 'articles/new'
